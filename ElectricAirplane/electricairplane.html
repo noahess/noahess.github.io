@@ -240,7 +240,9 @@
 
         let sliders = {
             "firstClass": {
-                valueCallback: (value) => {apDataProxy.first_ct = value},
+                valueCallback: (value) => {
+                    apDataProxy.first_ct = value
+                },
                 default: 30,
                 min: 0,
                 max: 40,
@@ -248,7 +250,9 @@
                 group: "Seating"
             },
             "comfortClass": {
-                valueCallback: (value) => {apDataProxy.comfort_ct = value},
+                valueCallback: (value) => {
+                    apDataProxy.comfort_ct = value
+                },
                 default: 50,
                 min: 0,
                 max: 75,
@@ -256,7 +260,9 @@
                 group: "Seating"
             },
             "economyClass": {
-                valueCallback: (value) => {apDataProxy.economy_ct = value},
+                valueCallback: (value) => {
+                    apDataProxy.economy_ct = value
+                },
                 default: 140,
                 min: 0,
                 max: 250,
@@ -264,7 +270,9 @@
                 group: "Seating"
             },
             "jetAPrice": {
-                valueCallback: (value) => {marketDataProxy.jetA = value},
+                valueCallback: (value) => {
+                    marketDataProxy.jetA = value
+                },
                 default: 5.00,
                 min: 4.00,
                 max: 7.00,
@@ -272,7 +280,9 @@
                 group: "fuel"
             },
             "electricityPrice": {
-                valueCallback: (value) => {marketDataProxy.electricity = value},
+                valueCallback: (value) => {
+                    marketDataProxy.electricity = value
+                },
                 default: 0.18,
                 min: 0.05,
                 max: 0.50,
@@ -280,7 +290,9 @@
                 group: "fuel"
             },
             "carbonTax": {
-                valueCallback: (value) => {marketDataProxy.carbon_tax_per_flight = value},
+                valueCallback: (value) => {
+                    marketDataProxy.carbon_tax_per_flight = value
+                },
                 default: 0,
                 min: 0,
                 max: 3000,
@@ -379,16 +391,19 @@
                 href="https://creativecommons.org/licenses/by/2.0" class="attribution-text">[CC BY 2.0]</a></div>
     </div>
 </div>
-<div id="content" style="margin: 20px; max-width: 800px; text-align: center">
+<div id="content"
+     style="max-width: 950px; text-align: center; display: block; margin: 20px auto 50px;">
     <h1 style="margin-bottom: 50px">Work in progress! Corrections and citations coming.</h1>
 
     <h2 class="content-header">Overview</h2>
-    <p class="content-text">The late 2010s have been increasingly exciting for those watching electric aviation, especially 2019 in review.
+    <p class="content-text">The late 2010s have been increasingly exciting for those watching electric aviation,
+        especially 2019 in review.
         This past year has seen the first all-electric airline commitment and success; Boeing partnering with Kitty
         Hawk — an electric airframer; and delivery of NASA’s electric X-57, the agency’s first crewed X-plane in two
         decades. With this fast pace, when should we start seeing electric aircraft take over the skies?</p>
     <h2 class="content-header">Design Concept</h2>
-    <p class="content-text">To begin our analysis, we will need to set some rules and assumptions. We’re not looking to completely upend the
+    <p class="content-text">To begin our analysis, we will need to set some rules and assumptions. We’re not looking to
+        completely upend the
         aviation industry, so we will simply study a re-configured existing airframe (sorry, fans of blended wing
         bodies). We will also only look at the very surface level of design, a first-order approach. This article is not
         intended to be a comprehensive study, only a look at a potential new industry.<br/>
@@ -409,7 +424,8 @@
         however, unit pricing and lease rates may allow direct competition with small aircraft.
     </p>
     <h2 class="content-header">Weights</h2>
-    <p class="content-text">All commercial aircraft specify a Maximum Take-off Weight (MTOW) and a Maximum Landing Weight (MLW), with MTOW >
+    <p class="content-text">All commercial aircraft specify a Maximum Take-off Weight (MTOW) and a Maximum Landing
+        Weight (MLW), with MTOW >
         MLW. The MLW of the 767–300 is listed as 145.5t (metric tons) with an Operating Empty Weight (OEW) of 88t.
         According to the FAA, the average weight of passengers is 190 lb in the summer and 195 lb in the winter, or just
         under 90 kg, with EASA reporting a standard deviation of 17.7 kg. EASA also reports an average mass of
@@ -421,13 +437,15 @@
         Thesis:
     </p>
     <img src="/static/weight_breakdown.png" alt="image" class="content-image">
-    <p class="content-text">Boeing claims to have achieved a 20% weight reduction for comparable parts by moving to Carbon Fiber Reinforced
+    <p class="content-text">Boeing claims to have achieved a 20% weight reduction for comparable parts by moving to
+        Carbon Fiber Reinforced
         Polymer (CFRP) on the 787 Dreamliner. Assuming the fuselage, wing, wing box, and empennage can be made out of
         CFRP on our aircraft, that results in a weight of 25% + (23% × 80%) + (3% × 80%) + (23% × 80%) + 8% = 72% × OEW
         of 767 = 63.5t, ignoring the engines. The total amount of weight remaining for engines and batteries is now MLW
         − Passenger Weight − OEW of new design = 82t – N × 96kg with the same standard deviation.</p>
     <h2 class="content-header">Flight Performance</h2>
-    <p class="content-text">Thanks to FlightAware, we can find real-world data of how 767–300s are used in service. Out of 200 flights
+    <p class="content-text">Thanks to FlightAware, we can find real-world data of how 767–300s are used in service. Out
+        of 200 flights
         available on FlightAware, 105 are regularly scheduled passenger flights. Of the 105 regularly scheduled
         passenger flights, 55 are less than 6.5 hours in duration. Of the 55 routes meeting our mission design, 224
         flights from the following 48 routes were analyzed:<br/>
@@ -437,15 +455,18 @@
         needs of a subset of the market:
     </p>
     <img src="/static/FlightDistributions.png" alt="image" class="content-image">
-    <p class="content-text">Piano-X gives us a Cd of 0.02527 at cruise based on a reference area of 283.35 square meters. Because our design
+    <p class="content-text">Piano-X gives us a Cd of 0.02527 at cruise based on a reference area of 283.35 square
+        meters. Because our design
         uses CFRP, we can make some aerodynamic improvements. Referencing the 787–8 in Piano-X, we assume the new Cd
         should be around 0.022 (a 10% improvement). Assuming constant Cd through flight, we can obtain the total work
         needed to compensate for drag.</p>
     <h2 class="content-header">Engines</h2>
-    <p class="content-text">We can assume the engines are perfectly efficient at converting electrical work into kinetic energy of the air
+    <p class="content-text">We can assume the engines are perfectly efficient at converting electrical work into kinetic
+        energy of the air
         and do so in an adiabatic and isenthalpic process:</p>
     <img src="/static/Engine%20Diagram.png" alt="image" class="content-image">
-    <p class="content-text">These are some strong assumptions, but we will use a large Factor of Safety (or Factor of Ignorance, as one of my
+    <p class="content-text">These are some strong assumptions, but we will use a large Factor of Safety (or Factor of
+        Ignorance, as one of my
         instructors in college called it) later to compensate. These assumptions mean that we can convert electricity
         exactly into momentum of air, and therefore the reaction on the airplane.<br/>
         NASA has an ongoing program for lightweight Megawatt-class motors with a target specific capability of 8 kW/kg
@@ -453,12 +474,14 @@
         mean 10 kW/kg and standard deviation of 2 kW/kg.
     </p>
     <h2 class="content-header">Putting it all Together</h2>
-    <p class="content-text">Most flights look relatively the same. Assuming a negative sum of total work rate cannot be recovered (and is
+    <p class="content-text">Most flights look relatively the same. Assuming a negative sum of total work rate cannot be
+        recovered (and is
         therefore 0), we obtain the following:</p>
     <img src="/static/WorkBreakdown.png" alt="image" class="content-image">
     <p class="content-text">Plotting the maximum work rates and total electrical work done:</p>
     <img src="/static/WorkRateResult.png" alt="image" class="content-image">
-    <p class="content-text">Applying a Factor of Safety of 1.25 for both energy storage and engine rating, we calculate the airplane must
+    <p class="content-text">Applying a Factor of Safety of 1.25 for both energy storage and engine rating, we calculate
+        the airplane must
         have about 2×45 MW engines and a total storage of 100 MWh. The weight of the engines will be 4500 kg with a
         standard deviation of 900 kg assuming successful commercialization of NASA’s electric motor technology. The
         engines will probably also include some extra weight from the fan, nacelle, etc. on the order of 1500 kg each.
@@ -466,7 +489,8 @@
         distribution:
     </p>
     <img src="/static/battery_weight_left.png" alt="image" class="content-image">
-    <p class="content-text">This leaves us with an expected battery energy density of 1.855 kWh/kg and a standard deviation of 160 Wh/kg:</p>
+    <p class="content-text">This leaves us with an expected battery energy density of 1.855 kWh/kg and a standard
+        deviation of 160 Wh/kg:</p>
     <img src="/static/final_density_result.png" alt="image" class="content-image">
     <h2 class="content-header">Economic Analysis</h2>
     <h1>Content coming!</h1>
