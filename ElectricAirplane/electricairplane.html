@@ -336,6 +336,11 @@
             }
         }
     </script>
+    <style>
+        .content-image {
+            max-width: 80%;
+        }
+    </style>
 </head>
 <body>
 <div class="header-area">
@@ -363,7 +368,7 @@
                 href="https://creativecommons.org/licenses/by/2.0" class="attribution-text">[CC BY 2.0]</a></div>
     </div>
 </div>
-<div id="content">
+<div id="content" style="margin: 20px">
     <h1 style="margin-bottom: 50px">Work in progress! Corrections and citations coming.</h1>
 
     <h2>Overview</h2>
@@ -404,7 +409,7 @@
         We will break down the weight of the aircraft using an estimate provided by Jacob Markish in his Master’s
         Thesis:
     </p>
-    <img src="/static/weight_breakdown.png">
+    <img src="/static/weight_breakdown.png" alt="image" class="content-image">
     <p>Boeing claims to have achieved a 20% weight reduction for comparable parts by moving to Carbon Fiber Reinforced
         Polymer (CFRP) on the 787 Dreamliner. Assuming the fuselage, wing, wing box, and empennage can be made out of
         CFRP on our aircraft, that results in a weight of 25% + (23% × 80%) + (3% × 80%) + (23% × 80%) + 8% = 72% × OEW
@@ -420,7 +425,7 @@
         traveled and time spent in flight. Furthermore, it appears our cutoff is relatively natural for meeting the
         needs of a subset of the market:
     </p>
-    <img src="/static/FlightDistributions.png">
+    <img src="/static/FlightDistributions.png" alt="image" class="content-image">
     <p>Piano-X gives us a Cd of 0.02527 at cruise based on a reference area of 283.35 square meters. Because our design
         uses CFRP, we can make some aerodynamic improvements. Referencing the 787–8 in Piano-X, we assume the new Cd
         should be around 0.022 (a 10% improvement). Assuming constant Cd through flight, we can obtain the total work
@@ -428,7 +433,7 @@
     <h2>Engines</h2>
     <p>We can assume the engines are perfectly efficient at converting electrical work into kinetic energy of the air
         and do so in an adiabatic and isenthalpic process:</p>
-    <img src="/static/Engine%20Diagram.png">
+    <img src="/static/Engine%20Diagram.png" alt="image" class="content-image">
     <p>These are some strong assumptions, but we will use a large Factor of Safety (or Factor of Ignorance, as one of my
         instructors in college called it) later to compensate. These assumptions mean that we can convert electricity
         exactly into momentum of air, and therefore the reaction on the airplane.
@@ -439,9 +444,9 @@
     <h2>Putting it all Together</h2>
     <p>Most flights look relatively the same. Assuming a negative sum of total work rate cannot be recovered (and is
         therefore 0), we obtain the following:</p>
-    <img src="/static/WorkBreakdown.png">
+    <img src="/static/WorkBreakdown.png" alt="image" class="content-image">
     <p>Plotting the maximum work rates and total electrical work done:</p>
-    <img src="/static/WorkRateResult.png">
+    <img src="/static/WorkRateResult.png" alt="image" class="content-image">
     <p>Applying a Factor of Safety of 1.25 for both energy storage and engine rating, we calculate the airplane must
         have about 2×45 MW engines and a total storage of 100 MWh. The weight of the engines will be 4500 kg with a
         standard deviation of 900 kg assuming successful commercialization of NASA’s electric motor technology. The
@@ -449,9 +454,9 @@
         Assuming 220 passengers and our results, the weight of the airplane without batteries should follow this
         distribution:
     </p>
-    <img src="/static/battery_weight_left.png">
+    <img src="/static/battery_weight_left.png" alt="image" class="content-image">
     <p>This leaves us with an expected battery energy density of 1.855 kWh/kg and a standard deviation of 160 Wh/kg:</p>
-    <img src="/static/final_density_result.png">
+    <img src="/static/final_density_result.png" alt="image" class="content-image">
     <h2>Economic Analysis</h2>
     <h1>Content coming!</h1>
 
