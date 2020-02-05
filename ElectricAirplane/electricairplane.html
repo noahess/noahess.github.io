@@ -120,8 +120,8 @@
                 type: "linear"
             },
             autosize: true,
-            width: 600,
-            height: 500,
+            // width: 600,
+            // height: 500,
             showlegend: false,
             margin: {
                 b: 100
@@ -139,8 +139,8 @@
                 type: "linear"
             },
             autosize: true,
-            width: 600,
-            height: 500,
+            // width: 600,
+            // height: 500,
             showlegend: false,
             margin: {
                 b: 100
@@ -158,8 +158,8 @@
                 type: "linear"
             },
             autosize: true,
-            width: 600,
-            height: 500,
+            // width: 600,
+            // height: 500,
             showlegend: false,
             margin: {
                 b: 100
@@ -347,6 +347,8 @@
                     theObject.default, theObject.min, theObject.max, theObject.step)
             }
         }
+
+
     </script>
     <style>
         .content-image {
@@ -362,6 +364,35 @@
 
         .content-header {
             margin-top: 20px;
+        }
+
+        #citations {
+            text-align: left;
+            justify-content: left;
+        }
+
+        .ref-id {
+            font-style: normal;
+        }
+
+        .citation-link:link {
+            text-decoration: none;
+        }
+
+        .citation-name {
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .citation-address {
+            margin-top: 0;
+            margin-bottom: 3px;
+            margin-left: 1em;
+        }
+
+        .citation-date{
+            margin-top: 0;
+            margin-left: 1em;
         }
     </style>
 </head>
@@ -397,10 +428,14 @@
 
     <h2 class="content-header">Overview</h2>
     <p class="content-text">The late 2010s have been increasingly exciting for those watching electric aviation,
-        especially 2019 in review.
-        This past year has seen the first all-electric airline commitment and success; Boeing partnering with Kitty
-        Hawk — an electric airframer; and delivery of NASA’s electric X-57, the agency’s first crewed X-plane in two
-        decades. With this fast pace, when should we start seeing electric aircraft take over the skies?</p>
+        especially 2019 in review.This past year has seen the first all-electric airline commitment <a
+                href="#citation1" class="citation-link">[1]</a> and success <a href="#citation2"
+                                                                               class="citation-link">[2]</a>; Boeing
+        partnering with Kitty Hawk — an electric airframer <a href="#citation3" class="citation-link">[3]</a>; and
+        delivery of NASA’s electric X-57, the agency’s first crewed X-plane in two decades <a href="#citation4"
+                                                                                              class="citation-link">[4]</a>.
+        With this fast pace, when
+        should we start seeing electric aircraft take over the skies?</p>
     <h2 class="content-header">Design Concept</h2>
     <p class="content-text">To begin our analysis, we will need to set some rules and assumptions. We’re not looking to
         completely upend the
@@ -417,29 +452,36 @@
         called the Middle of the Market (MoM) and is currently served on the lower end by A321 XLR’s and 757s, and on
         the upper end by 767s, 787–8s, and A330s.<br/>
         We will look at the 767–300, a highly capable and relatively light aircraft in the upper end of the MoM. It’s
-        unlikely an electric aircraft could match the range of the 767 (6,876 miles), so we will only consider
+        unlikely an electric aircraft could match the range of the 767 (6,876 miles) <a href="#citation5"
+                                                                                        class="citation-link">[5]</a>,
+        so we will only consider
         flights up to 6.5 hours and total range of 3,500 miles. This falls just short of the 737 MAX family with ranges
-        at maximum payload between 4,100 miles to 4,400 miles but serves the entire continental United States, most
+        at maximum payload between 4,100 miles to 4,400 miles <a href="#citation6" class="citation-link">[6]</a> but
+        serves the entire continental United States, most
         or all of China from Beijing to Chengdu, and all western Europe. This will severely limit the market size;
         however, unit pricing and lease rates may allow direct competition with small aircraft.
     </p>
     <h2 class="content-header">Weights</h2>
     <p class="content-text">All commercial aircraft specify a Maximum Take-off Weight (MTOW) and a Maximum Landing
         Weight (MLW), with MTOW >
-        MLW. The MLW of the 767–300 is listed as 145.5t (metric tons) with an Operating Empty Weight (OEW) of 88t.
+        MLW. The MLW of the 767–300 is listed as 145.5t (metric tons) with an Operating Empty Weight (OEW) of 88t <a
+                href="#citation7" class="citation-link">[7]</a>.
         According to the FAA, the average weight of passengers is 190 lb in the summer and 195 lb in the winter, or just
-        under 90 kg, with EASA reporting a standard deviation of 17.7 kg. EASA also reports an average mass of
-        checked baggage at roughly 16 kg with a standard deviation of 5.7 kg. We will assume half of all passengers
+        under 90 kg <a href="#citation8" class="citation-link">[8]</a>, with EASA reporting a standard deviation of 17.7
+        kg. EASA also reports an average mass of
+        checked baggage at roughly 16 kg with a standard deviation of 5.7 kg <a href="#citation9" class="citation-link">[9]</a>.
+        We will assume half of all passengers
         will check 1 bag as these flights will be mostly 4 hours long or less. The total weight addition due to N-many
         passengers is then (N × 100% × 90 kg) + (N × 50% × 16 kg) = N × 96 kg with standard deviation [(N × 100% × 17.7
         kg)² + (N × 50% × 5.7 kg)²] ^ 0.5 = N × 19 kg.<br/>
         We will break down the weight of the aircraft using an estimate provided by Jacob Markish in his Master’s
-        Thesis:
+        Thesis <a href="#citation10" class="citation-link">[10]</a>:
     </p>
     <img src="/static/weight_breakdown.png" alt="image" class="content-image">
     <p class="content-text">Boeing claims to have achieved a 20% weight reduction for comparable parts by moving to
         Carbon Fiber Reinforced
-        Polymer (CFRP) on the 787 Dreamliner. Assuming the fuselage, wing, wing box, and empennage can be made out of
+        Polymer (CFRP) on the 787 Dreamliner <a href="#citation11" class="citation-link">[11]</a>. Assuming the
+        fuselage, wing, wing box, and empennage can be made out of
         CFRP on our aircraft, that results in a weight of 25% + (23% × 80%) + (3% × 80%) + (23% × 80%) + 8% = 72% × OEW
         of 767 = 63.5t, ignoring the engines. The total amount of weight remaining for engines and batteries is now MLW
         − Passenger Weight − OEW of new design = 82t – N × 96kg with the same standard deviation.</p>
@@ -493,42 +535,113 @@
         deviation of 160 Wh/kg:</p>
     <img src="/static/final_density_result.png" alt="image" class="content-image">
     <h2 class="content-header">Economic Analysis</h2>
-    <h1>Content coming!</h1>
+    <h1>Content coming! Sliders are temporarily broken under new format </h1>
 
     <div class="plots-container">
         <div id="costWaterfall_737"></div>
         <div id="costWaterfall_A320"></div>
+        <div id="costWaterfall_767"></div>
+        <div id="slider-container">
+            <h2 id="seatingCount" onclick="setGroupDefaults('Seating')" class="slider-titles"></h2>
+            <div class="slider-container">
+                <div class="slider-label">First-Class Seating</div>
+                <div id="firstClassSlider" class="slider-bar">
+                    <div id="firstClassHandle" class="custom-handle ui-slider-handle"></div>
+                </div>
+                <div class="slider-label">Comfort-Class Seating</div>
+                <div id="comfortClassSlider" class="slider-bar">
+                    <div id="comfortClassHandle" class="custom-handle ui-slider-handle"></div>
+                </div>
+                <div class="slider-label">Economy-Class Seating</div>
+                <div id="economyClassSlider" class="slider-bar">
+                    <div id="economyClassHandle" class="custom-handle ui-slider-handle"></div>
+                </div>
+            </div>
+            <h2 id="fuelPrices" onclick="setGroupDefaults('fuel')" class="slider-titles">↻ Fuel Costs</h2>
+            <div id="info-sidebar">
+                <div class="slider-label">Jet A Price ($/gal)</div>
+                <div id="jetAPriceSlider" class="slider-bar">
+                    <div id="jetAPriceHandle" class="custom-handle ui-slider-handle"></div>
+                </div>
+                <div class="slider-label">Electricity Price ($/kWh)</div>
+                <div id="electricityPriceSlider" class="slider-bar">
+                    <div id="electricityPriceHandle" class="custom-handle ui-slider-handle"></div>
+                </div>
+                <div class="slider-label">Carbon Tax ($/flight)</div>
+                <div id="carbonTaxSlider" class="slider-bar">
+                    <div id="carbonTaxHandle" class="custom-handle ui-slider-handle"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="costWaterfall_767"></div>
 
-    <h2 id="seatingCount" onclick="setGroupDefaults('Seating')" class="slider-titles"></h2>
-    <div class="slider-container">
-        <div class="slider-label">First-Class Seating</div>
-        <div id="firstClassSlider" class="slider-bar">
-            <div id="firstClassHandle" class="custom-handle ui-slider-handle"></div>
+
+
+
+
+    <div id="citations">
+        <div id="citation1">
+            <p class="citation-name"><span class="ref-id">[1]</span> Harbour Air and magniX Partner to Build World’s First All-Electric Airline</p>
+            <a class="citation-address" href="https://www.harbourair.com/harbour-air-and-magnix-partner-to-build-worlds-first-all-electric-airline/">
+                https://www.harbourair.com/harbour-air-and-magnix-partner-to-build-worlds-first-all-electric-airline/</a>
+            <p class="citation-date">March 26, 2019</p>
         </div>
-        <div class="slider-label">Comfort-Class Seating</div>
-        <div id="comfortClassSlider" class="slider-bar">
-            <div id="comfortClassHandle" class="custom-handle ui-slider-handle"></div>
+        <div id="citation2">
+            <p class="citation-name"><span class="ref-id">[2]</span> World’s First Commercial Electric Airplane Successfully Completes Test Flight in
+                Canada</p>
+            <a class="citation-address" href="https://www.goodnewsnetwork.org/worlds-first-commercial-electric-airplane-completes-test-flight/">
+                https://www.goodnewsnetwork.org/worlds-first-commercial-electric-airplane-completes-test-flight/</a>
+            <p class="citation-date">December 23, 2019</p>
         </div>
-        <div class="slider-label">Economy-Class Seating</div>
-        <div id="economyClassSlider" class="slider-bar">
-            <div id="economyClassHandle" class="custom-handle ui-slider-handle"></div>
+        <div id="citation3">
+            <p class="citation-name"><span class="ref-id">[3]</span> Boeing and Kitty Hawk Form Strategic Partnership</p>
+            <a class="citation-address" href="https://boeing.mediaroom.com/2019-06-25-Boeing-and-Kitty-Hawk-Form-Strategic-Partnership">
+                https://boeing.mediaroom.com/2019-06-25-Boeing-and-Kitty-Hawk-Form-Strategic-Partnership</a>
+            <p class="citation-date">June 25, 2019</p>
         </div>
-    </div>
-    <h2 id="fuelPrices" onclick="setGroupDefaults('fuel')" class="slider-titles">↻ Fuel Costs</h2>
-    <div class="slider-container">
-        <div class="slider-label">Jet A Price ($/gal)</div>
-        <div id="jetAPriceSlider" class="slider-bar">
-            <div id="jetAPriceHandle" class="custom-handle ui-slider-handle"></div>
+        <div id="citation4">
+            <p class="citation-name"><span class="ref-id">[4]</span> NASA Takes Delivery of First All-Electric Experimental Aircraft</p>
+            <a class="citation-address" href="https://www.nasa.gov/press-release/nasa-takes-delivery-of-first-all-electric-experimental-aircraft">
+                https://www.nasa.gov/press-release/nasa-takes-delivery-of-first-all-electric-experimental-aircraft</a>
+            <p class="citation-date">October 3, 2019</p>
         </div>
-        <div class="slider-label">Electricity Price ($/kWh)</div>
-        <div id="electricityPriceSlider" class="slider-bar">
-            <div id="electricityPriceHandle" class="custom-handle ui-slider-handle"></div>
+        <div id="citation5">
+            <p class="citation-name"><span class="ref-id">[5]</span> Boeing 767-300</p>
+            <a class="citation-address" href="http://www.flugzeuginfo.net/acdata_php/acdata_7673_en.php">http://www.flugzeuginfo.net/acdata_php/acdata_7673_en.php</a>
+            <p class="citation-date">n.d.</p>
         </div>
-        <div class="slider-label">Carbon Tax ($/flight)</div>
-        <div id="carbonTaxSlider" class="slider-bar">
-            <div id="carbonTaxHandle" class="custom-handle ui-slider-handle"></div>
+        <div id="citation6">
+            <p class="citation-name"><span class="ref-id">[6]</span> Boeing 737 Specifications</p>
+            <a class="citation-address" href="http://www.modernairliners.com/boeing-737/boeing-737-specifications/">http://www.modernairliners.com/boeing-737/boeing-737-specifications/</a>
+            <p class="citation-date">n.d.</p>
+        </div>
+        <div id="citation7">
+            <p class="citation-name"><span class="ref-id">[7]</span> Boeing 767-300</p>
+            <a class="citation-address" href="http://www.flugzeuginfo.net/acdata_php/acdata_7673_en.php">http://www.flugzeuginfo.net/acdata_php/acdata_7673_en.php</a>
+            <p class="citation-date">n.d.</p>
+        </div>
+        <div id="citation8">
+            <p class="citation-name"><span class="ref-id">[8]</span> AC 120-27E</p>
+            <a class="citation-address" href="https://www.faa.gov/documentlibrary/media/advisory_circular/ac120-27e.pdf">https://www.faa.gov/documentlibrary/media/advisory_circular/ac120-27e.pdf</a>
+            <p class="citation-date">June 10, 2005</p>
+        </div>
+        <div id="citation9">
+            <p class="citation-name"><span class="ref-id">[9]</span> Survey on Standard Weights of Passengers and Baggage</p>
+            <a class="citation-address" href="https://www.easa.europa.eu/sites/default/files/dfu/Weight%20Survey%20R20090095%20Final.pdf">
+                https://www.easa.europa.eu/sites/default/files/dfu/Weight%20Survey%20R20090095%20Final.pdf</a>
+            <p class="citation-date">May 2009</p>
+        </div>
+        <div id="citation10">
+            <p class="citation-name"><span class="ref-id">[10]</span> Valuation Techniques for Commercial Aircraft Program Design</p>
+            <a class="citation-address" href="https://dspace.mit.edu/bitstream/handle/1721.1/16871/51679351-MIT.pdf?sequence=2&isAllowed=y">
+                https://dspace.mit.edu/bitstream/handle/1721.1/16871/51679351-MIT.pdf?sequence=2&isAllowed=y</a>
+            <p class="citation-date">May 10, 2002</p>
+        </div>
+        <div id="citation11">
+            <p class="citation-name"><span class="ref-id">[11]</span> Boeing 787 - From the Ground Up</p>
+            <a class="citation-address" href="https://www.boeing.com/commercial/aeromagazine/articles/qtr_4_06/article_04_2.html">
+                https://www.boeing.com/commercial/aeromagazine/articles/qtr_4_06/article_04_2.html</a>
+            <p class="citation-date">Q4 2006</p>
         </div>
     </div>
 
