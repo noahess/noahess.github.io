@@ -42,6 +42,8 @@
 .slider-label {
     text-align: right;
     align-self: center;
+    margin-top: 12px;
+    margin-bottom: 6px;
 }
 
 .slider-bar {
@@ -51,4 +53,6 @@
 .slider-titles {
     margin-left: 60px;
     cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: -10px;
 }

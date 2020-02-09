@@ -106,4 +106,17 @@ body {
     color: #ff3e41;
 }
 
+.assumption-weak {
+    text-decoration: underline;
+    text-decoration-color: #ff8d1f;
+}
 
+.assumption-med {
+    text-decoration: underline;
+    text-decoration-color: #369fff;
+}
+
+.assumption-strong {
+    text-decoration: underline;
+    text-decoration-color: #49ba3a;
+}

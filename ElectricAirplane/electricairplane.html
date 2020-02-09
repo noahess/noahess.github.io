@@ -390,7 +390,7 @@
             margin-left: 1em;
         }
 
-        .citation-date{
+        .citation-date {
             margin-top: 0;
             margin-left: 1em;
         }
@@ -436,14 +436,17 @@
                                                                                               class="citation-link">[4]</a>.
         With this fast pace, when
         should we start seeing electric aircraft take over the skies?</p>
+    <p class="content-text">Many assumptions are made in this analysis. <span
+            class="assumption-weak">Weak assumptions are underlined in red</span>, <span class="assumption-strong">strong assumptions are underlined in green</span>,
+        and <span class="assumption-med">assumptions in-between are underlined in blue</span>.</p>
     <h2 class="content-header">Design Concept</h2>
     <p class="content-text">To begin our analysis, we will need to set some rules and assumptions. We’re not looking to
         completely upend the
         aviation industry, so we will simply study a re-configured existing airframe (sorry, fans of blended wing
         bodies). We will also only look at the very surface level of design, a first-order approach. This article is not
         intended to be a comprehensive study, only a look at a potential new industry.<br/>
-        Neither Boeing nor Airbus will probably introduce an electric aircraft into the 737/A320 market space first as
-        the large quantity demanded will introduce too much risk for a groundbreaking design. Exceptionally large
+        <span class="assumption-med">Neither Boeing nor Airbus will probably introduce an electric aircraft into the 737/A320 market space first as
+        the large quantity demanded will introduce too much risk for a groundbreaking design</span>. Exceptionally large
         aircraft like the A380, 747, or 777X make money for airlines on long-haul routes where the energy density of
         batteries may become an issue.<br/>
         A medium-range and medium-capacity aircraft designed for a small market is the perfect target for introducing
@@ -458,8 +461,8 @@
         flights up to 6.5 hours and total range of 3,500 miles. This falls just short of the 737 MAX family with ranges
         at maximum payload between 4,100 miles to 4,400 miles <a href="#citation6" class="citation-link">[6]</a> but
         serves the entire continental United States, most
-        or all of China from Beijing to Chengdu, and all western Europe. This will severely limit the market size;
-        however, unit pricing and lease rates may allow direct competition with small aircraft.
+        or all of China from Beijing to Chengdu, and all western Europe. <span class="assumption-med">This will severely limit the market size;
+        however, unit pricing and lease rates may allow direct competition with small aircraft</span>.
     </p>
     <h2 class="content-header">Weights</h2>
     <p class="content-text">All commercial aircraft specify a Maximum Take-off Weight (MTOW) and a Maximum Landing
@@ -470,8 +473,8 @@
         under 90 kg <a href="#citation8" class="citation-link">[8]</a>, with EASA reporting a standard deviation of 17.7
         kg. EASA also reports an average mass of
         checked baggage at roughly 16 kg with a standard deviation of 5.7 kg <a href="#citation9" class="citation-link">[9]</a>.
-        We will assume half of all passengers
-        will check 1 bag as these flights will be mostly 4 hours long or less. The total weight addition due to N-many
+        <span class="assumption-med">We will assume half of all passengers
+        will check 1 bag as these flights will be mostly 4 hours long or less</span>. The total weight addition due to N-many
         passengers is then (N × 100% × 90 kg) + (N × 50% × 16 kg) = N × 96 kg with standard deviation [(N × 100% × 17.7
         kg)² + (N × 50% × 5.7 kg)²] ^ 0.5 = N × 19 kg.<br/>
         We will break down the weight of the aircraft using an estimate provided by Jacob Markish in his Master’s
@@ -480,9 +483,9 @@
     <img src="/static/weight_breakdown.png" alt="image" class="content-image">
     <p class="content-text">Boeing claims to have achieved a 20% weight reduction for comparable parts by moving to
         Carbon Fiber Reinforced
-        Polymer (CFRP) on the 787 Dreamliner <a href="#citation11" class="citation-link">[11]</a>. Assuming the
+        Polymer (CFRP) on the 787 Dreamliner <a href="#citation11" class="citation-link">[11]</a>. <span class="assumption-strong">Assuming the
         fuselage, wing, wing box, and empennage can be made out of
-        CFRP on our aircraft, that results in a weight of 25% + (23% × 80%) + (3% × 80%) + (23% × 80%) + 8% = 72% × OEW
+        CFRP on our aircraft</span>, that results in a weight of 25% + (23% × 80%) + (3% × 80%) + (23% × 80%) + 8% = 72% × OEW
         of 767 = 63.5t, ignoring the engines. The total amount of weight remaining for engines and batteries is now MLW
         − Passenger Weight − OEW of new design = 82t – N × 96kg with the same standard deviation.</p>
     <h2 class="content-header">Flight Performance</h2>
@@ -500,24 +503,24 @@
     <p class="content-text">Piano-X gives us a Cd of 0.02527 at cruise based on a reference area of 283.35 square
         meters. Because our design
         uses CFRP, we can make some aerodynamic improvements. Referencing the 787–8 in Piano-X, we assume the new Cd
-        should be around 0.022 (a 10% improvement). Assuming constant Cd through flight, we can obtain the total work
+        should be around 0.022 (a 10% improvement). <span class="assumption-weak">Assuming constant Cd through flight</span>, we can obtain the total work
         needed to compensate for drag.</p>
     <h2 class="content-header">Engines</h2>
-    <p class="content-text">We can assume the engines are perfectly efficient at converting electrical work into kinetic
+    <p class="content-text"><span class="assumption-weak">We can assume the engines are perfectly efficient at converting electrical work into kinetic
         energy of the air
-        and do so in an adiabatic and isenthalpic process:</p>
+        and do so in an adiabatic and isenthalpic process</span>:</p>
     <img src="/static/Engine%20Diagram.png" alt="image" class="content-image">
     <p class="content-text">These are some strong assumptions, but we will use a large Factor of Safety (or Factor of
         Ignorance, as one of my
         instructors in college called it) later to compensate. These assumptions mean that we can convert electricity
         exactly into momentum of air, and therefore the reaction on the airplane.<br/>
         NASA has an ongoing program for lightweight Megawatt-class motors with a target specific capability of 8 kW/kg
-        and a stretch goal of 16 kW/kg. Should this technology mature, we can expect a roughly normal distribution with
+        and a stretch goal of 16 kW/kg. <span class="assumption-weak">Should this technology mature</span>, we can expect a roughly normal distribution with
         mean 10 kW/kg and standard deviation of 2 kW/kg.
     </p>
     <h2 class="content-header">Putting it all Together</h2>
-    <p class="content-text">Most flights look relatively the same. Assuming a negative sum of total work rate cannot be
-        recovered (and is
+    <p class="content-text">Most flights look relatively the same. <span class="assumption-strong">Assuming a negative sum of total work rate cannot be
+        recovered</span> (and is
         therefore 0), we obtain the following:</p>
     <img src="/static/WorkBreakdown.png" alt="image" class="content-image">
     <p class="content-text">Plotting the maximum work rates and total electrical work done:</p>
@@ -526,7 +529,7 @@
         the airplane must
         have about 2×45 MW engines and a total storage of 100 MWh. The weight of the engines will be 4500 kg with a
         standard deviation of 900 kg assuming successful commercialization of NASA’s electric motor technology. The
-        engines will probably also include some extra weight from the fan, nacelle, etc. on the order of 1500 kg each.
+        engines will probably also include some extra weight from the fan, nacelle, etc. <span class="assumption-weak">estimated to be on the order of 1500 kg each</span>.
         Assuming 220 passengers and our results, the weight of the airplane without batteries should follow this
         distribution:
     </p>
@@ -535,73 +538,74 @@
         deviation of 160 Wh/kg:</p>
     <img src="/static/final_density_result.png" alt="image" class="content-image">
     <h2 class="content-header">Economic Analysis</h2>
-    <h1>Content coming! Sliders are temporarily broken under new format </h1>
+    <h1>Content coming!</h1>
 
     <div class="plots-container">
         <div id="costWaterfall_737"></div>
         <div id="costWaterfall_A320"></div>
         <div id="costWaterfall_767"></div>
-        <div id="slider-container">
+        <div id="info-sidebar">
             <h2 id="seatingCount" onclick="setGroupDefaults('Seating')" class="slider-titles"></h2>
-            <div class="slider-container">
-                <div class="slider-label">First-Class Seating</div>
-                <div id="firstClassSlider" class="slider-bar">
-                    <div id="firstClassHandle" class="custom-handle ui-slider-handle"></div>
-                </div>
-                <div class="slider-label">Comfort-Class Seating</div>
-                <div id="comfortClassSlider" class="slider-bar">
-                    <div id="comfortClassHandle" class="custom-handle ui-slider-handle"></div>
-                </div>
-                <div class="slider-label">Economy-Class Seating</div>
-                <div id="economyClassSlider" class="slider-bar">
-                    <div id="economyClassHandle" class="custom-handle ui-slider-handle"></div>
-                </div>
+            <div class="slider-label">First-Class Seating</div>
+            <div id="firstClassSlider" class="slider-bar">
+                <div id="firstClassHandle" class="custom-handle ui-slider-handle"></div>
+            </div>
+            <div class="slider-label">Comfort-Class Seating</div>
+            <div id="comfortClassSlider" class="slider-bar">
+                <div id="comfortClassHandle" class="custom-handle ui-slider-handle"></div>
+            </div>
+            <div class="slider-label">Economy-Class Seating</div>
+            <div id="economyClassSlider" class="slider-bar">
+                <div id="economyClassHandle" class="custom-handle ui-slider-handle"></div>
             </div>
             <h2 id="fuelPrices" onclick="setGroupDefaults('fuel')" class="slider-titles">↻ Fuel Costs</h2>
-            <div id="info-sidebar">
-                <div class="slider-label">Jet A Price ($/gal)</div>
-                <div id="jetAPriceSlider" class="slider-bar">
-                    <div id="jetAPriceHandle" class="custom-handle ui-slider-handle"></div>
-                </div>
-                <div class="slider-label">Electricity Price ($/kWh)</div>
-                <div id="electricityPriceSlider" class="slider-bar">
-                    <div id="electricityPriceHandle" class="custom-handle ui-slider-handle"></div>
-                </div>
-                <div class="slider-label">Carbon Tax ($/flight)</div>
-                <div id="carbonTaxSlider" class="slider-bar">
-                    <div id="carbonTaxHandle" class="custom-handle ui-slider-handle"></div>
-                </div>
+            <div class="slider-label">Jet A Price ($/gal)</div>
+            <div id="jetAPriceSlider" class="slider-bar">
+                <div id="jetAPriceHandle" class="custom-handle ui-slider-handle"></div>
+            </div>
+            <div class="slider-label">Electricity Price ($/kWh)</div>
+            <div id="electricityPriceSlider" class="slider-bar">
+                <div id="electricityPriceHandle" class="custom-handle ui-slider-handle"></div>
+            </div>
+            <div class="slider-label">Carbon Tax ($/flight)</div>
+            <div id="carbonTaxSlider" class="slider-bar">
+                <div id="carbonTaxHandle" class="custom-handle ui-slider-handle"></div>
             </div>
         </div>
     </div>
 
 
-
-
-
     <div id="citations">
         <div id="citation1">
-            <p class="citation-name"><span class="ref-id">[1]</span> Harbour Air and magniX Partner to Build World’s First All-Electric Airline</p>
-            <a class="citation-address" href="https://www.harbourair.com/harbour-air-and-magnix-partner-to-build-worlds-first-all-electric-airline/">
+            <p class="citation-name"><span class="ref-id">[1]</span> Harbour Air and magniX Partner to Build World’s
+                First All-Electric Airline</p>
+            <a class="citation-address"
+               href="https://www.harbourair.com/harbour-air-and-magnix-partner-to-build-worlds-first-all-electric-airline/">
                 https://www.harbourair.com/harbour-air-and-magnix-partner-to-build-worlds-first-all-electric-airline/</a>
             <p class="citation-date">March 26, 2019</p>
         </div>
         <div id="citation2">
-            <p class="citation-name"><span class="ref-id">[2]</span> World’s First Commercial Electric Airplane Successfully Completes Test Flight in
+            <p class="citation-name"><span class="ref-id">[2]</span> World’s First Commercial Electric Airplane
+                Successfully Completes Test Flight in
                 Canada</p>
-            <a class="citation-address" href="https://www.goodnewsnetwork.org/worlds-first-commercial-electric-airplane-completes-test-flight/">
+            <a class="citation-address"
+               href="https://www.goodnewsnetwork.org/worlds-first-commercial-electric-airplane-completes-test-flight/">
                 https://www.goodnewsnetwork.org/worlds-first-commercial-electric-airplane-completes-test-flight/</a>
             <p class="citation-date">December 23, 2019</p>
         </div>
         <div id="citation3">
-            <p class="citation-name"><span class="ref-id">[3]</span> Boeing and Kitty Hawk Form Strategic Partnership</p>
-            <a class="citation-address" href="https://boeing.mediaroom.com/2019-06-25-Boeing-and-Kitty-Hawk-Form-Strategic-Partnership">
+            <p class="citation-name"><span class="ref-id">[3]</span> Boeing and Kitty Hawk Form Strategic Partnership
+            </p>
+            <a class="citation-address"
+               href="https://boeing.mediaroom.com/2019-06-25-Boeing-and-Kitty-Hawk-Form-Strategic-Partnership">
                 https://boeing.mediaroom.com/2019-06-25-Boeing-and-Kitty-Hawk-Form-Strategic-Partnership</a>
             <p class="citation-date">June 25, 2019</p>
         </div>
         <div id="citation4">
-            <p class="citation-name"><span class="ref-id">[4]</span> NASA Takes Delivery of First All-Electric Experimental Aircraft</p>
-            <a class="citation-address" href="https://www.nasa.gov/press-release/nasa-takes-delivery-of-first-all-electric-experimental-aircraft">
+            <p class="citation-name"><span class="ref-id">[4]</span> NASA Takes Delivery of First All-Electric
+                Experimental Aircraft</p>
+            <a class="citation-address"
+               href="https://www.nasa.gov/press-release/nasa-takes-delivery-of-first-all-electric-experimental-aircraft">
                 https://www.nasa.gov/press-release/nasa-takes-delivery-of-first-all-electric-experimental-aircraft</a>
             <p class="citation-date">October 3, 2019</p>
         </div>
@@ -622,24 +626,30 @@
         </div>
         <div id="citation8">
             <p class="citation-name"><span class="ref-id">[8]</span> AC 120-27E</p>
-            <a class="citation-address" href="https://www.faa.gov/documentlibrary/media/advisory_circular/ac120-27e.pdf">https://www.faa.gov/documentlibrary/media/advisory_circular/ac120-27e.pdf</a>
+            <a class="citation-address"
+               href="https://www.faa.gov/documentlibrary/media/advisory_circular/ac120-27e.pdf">https://www.faa.gov/documentlibrary/media/advisory_circular/ac120-27e.pdf</a>
             <p class="citation-date">June 10, 2005</p>
         </div>
         <div id="citation9">
-            <p class="citation-name"><span class="ref-id">[9]</span> Survey on Standard Weights of Passengers and Baggage</p>
-            <a class="citation-address" href="https://www.easa.europa.eu/sites/default/files/dfu/Weight%20Survey%20R20090095%20Final.pdf">
+            <p class="citation-name"><span class="ref-id">[9]</span> Survey on Standard Weights of Passengers and
+                Baggage</p>
+            <a class="citation-address"
+               href="https://www.easa.europa.eu/sites/default/files/dfu/Weight%20Survey%20R20090095%20Final.pdf">
                 https://www.easa.europa.eu/sites/default/files/dfu/Weight%20Survey%20R20090095%20Final.pdf</a>
             <p class="citation-date">May 2009</p>
         </div>
         <div id="citation10">
-            <p class="citation-name"><span class="ref-id">[10]</span> Valuation Techniques for Commercial Aircraft Program Design</p>
-            <a class="citation-address" href="https://dspace.mit.edu/bitstream/handle/1721.1/16871/51679351-MIT.pdf?sequence=2&isAllowed=y">
+            <p class="citation-name"><span class="ref-id">[10]</span> Valuation Techniques for Commercial Aircraft
+                Program Design</p>
+            <a class="citation-address"
+               href="https://dspace.mit.edu/bitstream/handle/1721.1/16871/51679351-MIT.pdf?sequence=2&isAllowed=y">
                 https://dspace.mit.edu/bitstream/handle/1721.1/16871/51679351-MIT.pdf?sequence=2&isAllowed=y</a>
             <p class="citation-date">May 10, 2002</p>
         </div>
         <div id="citation11">
             <p class="citation-name"><span class="ref-id">[11]</span> Boeing 787 - From the Ground Up</p>
-            <a class="citation-address" href="https://www.boeing.com/commercial/aeromagazine/articles/qtr_4_06/article_04_2.html">
+            <a class="citation-address"
+               href="https://www.boeing.com/commercial/aeromagazine/articles/qtr_4_06/article_04_2.html">
                 https://www.boeing.com/commercial/aeromagazine/articles/qtr_4_06/article_04_2.html</a>
             <p class="citation-date">Q4 2006</p>
         </div>
