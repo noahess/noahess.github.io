@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading Graphs</title>
+    <link rel="stylesheet" type="text/css" href="/css/master.css">
+    <link rel="stylesheet" type="text/css" href="/css/plots.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.min.js"
+            integrity="sha256-v4EzcFR/sOSVpwhfWikw9bwkBQcQnbwtaLhHRSIEvHw=" crossorigin="anonymous"></script>
+    <script>
+        let spanX = math.range(0, 25, 100);
+        let L1 = 5;
+        let L2 = 10;
+
+        const liftMax = 140000 / 2;
+        const k = liftMax / 17.648;
+        const E = liftMax * 3.5 / 70;
+
+        let liftDeflection = k * spanX ^ 4 / 24 - k * (spanX - 3) ^ 6 / 174240 - 17.66 * k * spanX ^ 3 / 6 + 169.33333 * k * spanX ^ 2 / 2 - k * spanX / 120 + .00418388 * k;
+        let liftMoment = k * spanX ^ 2 / 2 - k * (spanX - 3)^4 / (12 * 484) - 17.66 * k * spanX + 169.3333 * k;
+        let liftShear = k * spanX - k * (spanX - 3) ^ 3 / (3 * 484) - 17.66 * k;
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

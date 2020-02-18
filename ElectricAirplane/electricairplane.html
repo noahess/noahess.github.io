@@ -408,8 +408,8 @@
     <div class="header-container">
         <div class="header-style"><h1>Noah's Projects</h1></div>
         <div class="pagelinks">
-            <a class="pagelink-text" style="margin-left: 20px;">About</a>
-            <a class="pagelink-text">Electric 767</a>
+            <a class="pagelink-text" style="margin-left: 20px; color: #4a4a4a;" href="/index.html">About</a>
+            <a class="pagelink-text" style="color: #4a4a4a">Electric 767</a>
         </div>
         <div class="headerspace"></div>
         <div class="social-style">
@@ -423,15 +423,16 @@
     </div>
     <!-- Modified from https://commons.wikimedia.org/wiki/File:Boeing_787_Dreamliner_N787BX.jpg -->
     <div style="position: relative">
-        <img class="banner-image" alt="Boeing 787 Dreamliner by José A. Montes" src="/static/dreamliner-banner.jpg">
-        <div class="attribution"><a href="https://commons.wikimedia.org/wiki/File:Boeing_787_Dreamliner_N787BX.jpg"
-                                    class="attribution-text">Boeing 787 Dreamliner by José A. Montes</a> <a
-                href="https://creativecommons.org/licenses/by/2.0" class="attribution-text">[CC BY 2.0]</a></div>
+        <img class="banner-image" alt="Banner Image" src="/static/Ap%201.png">
+<!--        <img class="banner-image" alt="Boeing 787 Dreamliner by José A. Montes" src="/static/dreamliner-banner.jpg">-->
+<!--        <div class="attribution"><a href="https://commons.wikimedia.org/wiki/File:Boeing_787_Dreamliner_N787BX.jpg"-->
+<!--                                    class="attribution-text">Boeing 787 Dreamliner by José A. Montes</a> <a-->
+<!--                href="https://creativecommons.org/licenses/by/2.0" class="attribution-text">[CC BY 2.0]</a></div>-->
     </div>
 </div>
 <div id="content"
      style="max-width: 950px; text-align: center; display: block; margin: 20px auto 50px;">
-    <h1 style="margin-bottom: 50px">Work in progress! Corrections and citations coming.</h1>
+    <h1 style="margin-bottom: 50px">Work in progress!</h1>
 
     <h2 class="content-header">Overview</h2>
     <p class="content-text">The late 2010s have been increasingly exciting for those watching electric aviation,
@@ -504,6 +505,7 @@
         $$\text{MLW} - \text{Passenger Weight} − \text{OEW of new design} = 82\text{t} – N\times 96\text{kg} +
         \sqrt{N}\times 109.2\text{kg}$$
     </p>
+
     <h2 class="content-header">Flight Performance</h2>
     <p class="content-text">Thanks to FlightAware, we can find real-world data of how 767–300s are used in service. Out
         of 200 flights
@@ -651,17 +653,19 @@
     <img src="/static/WorkRateResult.png" alt="image" class="content-image" style="max-width: 100%">
     <img src="/static/EnergyStorageResult.png" alt="image" class="content-image" style="max-width: 100%">
     <p class="content-text">Applying a Factor of Safety of 1.25 for both energy storage and engine rating, we calculate
-        the airplane must
-        have about 2×45 MW engines and a total storage of 100 MWh. The weight of the engines will be 4500 kg with a
+        the airplane must have about 2×45 MW engines or 2×22.5 MW engines and a total storage of 100 MWh. The weight of
+        the engines will be 4500 kg for two or 2500 kg for four with a
         standard deviation of 900 kg assuming successful commercialization of NASA’s electric motor technology. The
-        engines will probably also include some extra weight from the fan, nacelle, etc. <span class="assumption-weak">estimated to be on the order of 1500 kg each</span>.
+        engines will probably also include some extra weight from the fan, nacelle, etc. <span class="assumption-weak">estimated to be on the order of 1500 kg each for two or 1000 kg each for four</span>.
         Assuming 220 passengers and our results, the weight of the airplane without batteries should follow this
         distribution:
     </p>
     <img src="/static/battery_weight_left.png" alt="image" class="content-image">
-    <p class="content-text">This leaves us with an expected battery energy density of 1.855 kWh/kg and a standard
-        deviation of 160 Wh/kg:</p>
+    <p class="content-text">This leaves us with a required battery energy density of 2.2 kWh/kg, well beyond current
+        technology. To continue this analysis, we will assume this technology exists.</p>
     <img src="/static/final_density_result.png" alt="image" class="content-image">
+    <p class="content-text">The actual requirement for energy density may be higher than the baseline above as the
+        batteries may fatigue over time.</p>
     <h2 class="content-header">Economic Analysis</h2>
     <h1>Content coming!</h1>
 
