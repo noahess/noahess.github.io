@@ -18,14 +18,15 @@
     <link rel="stylesheet" type="text/css" href="/css/plots.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         MathJax = {
             tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
             }
         };
-
+    </script>
+    <script>
         // Jet A from https://www.globalair.com/airport/region.aspx
         // Electricity from https://www.chooseenergy.com/electricity-rates-by-state/
         // Cargo from // https://skift.com/2014/08/04/when-airlines-worry-more-about-cargo-than-they-do-about-passengers/
@@ -424,10 +425,10 @@
     <!-- Modified from https://commons.wikimedia.org/wiki/File:Boeing_787_Dreamliner_N787BX.jpg -->
     <div style="position: relative">
         <img class="banner-image" alt="Banner Image" src="/static/Ap%201.png">
-<!--        <img class="banner-image" alt="Boeing 787 Dreamliner by José A. Montes" src="/static/dreamliner-banner.jpg">-->
-<!--        <div class="attribution"><a href="https://commons.wikimedia.org/wiki/File:Boeing_787_Dreamliner_N787BX.jpg"-->
-<!--                                    class="attribution-text">Boeing 787 Dreamliner by José A. Montes</a> <a-->
-<!--                href="https://creativecommons.org/licenses/by/2.0" class="attribution-text">[CC BY 2.0]</a></div>-->
+        <!--        <img class="banner-image" alt="Boeing 787 Dreamliner by José A. Montes" src="/static/dreamliner-banner.jpg">-->
+        <!--        <div class="attribution"><a href="https://commons.wikimedia.org/wiki/File:Boeing_787_Dreamliner_N787BX.jpg"-->
+        <!--                                    class="attribution-text">Boeing 787 Dreamliner by José A. Montes</a> <a-->
+        <!--                href="https://creativecommons.org/licenses/by/2.0" class="attribution-text">[CC BY 2.0]</a></div>-->
     </div>
 </div>
 <div id="content"
@@ -443,16 +444,29 @@
         delivery of NASA’s electric X-57, the agency’s first crewed X-plane in two decades<a href="#citation4"
                                                                                              class="citation-link">[4]</a>.
         With this fast pace, when should we start seeing electric aircraft take over the skies?</p>
+    <p class="content-text">
+        To begin our analysis, we will need to set some rules and assumptions. We’re not looking to
+        completely upend the
+        aviation industry, so we will simply study a re-configured existing airframe (sorry, fans of blended wing
+        bodies). We will also only look at the very surface level of design, a first-order approach. This article is not
+        intended to be a comprehensive study, only a look at a potential new industry. I will follow this general plan
+        for the analysis:
+    </p>
+    <ol type="1">
+        <li style="text-align: left">Generate design concept</li>
+        <li style="text-align: left">Estimate airframe weights</li>
+        <li style="text-align: left">Investigate how airlines actually use the 767-300 and estimate aero properties</li>
+        <li style="text-align: left">Estimate and refine propulsion requirements</li>
+        <li style="text-align: left">Calculate required engine & battery sizing</li>
+        <li style="text-align: left">Forecast the value of this project to important stakeholders</li>
+        <li style="text-align: left">Sketch a production system optimized for this airplane</li>
+    </ol>
     <p class="content-text">Many assumptions are made in this analysis.
         <span class="assumption-weak">Weak assumptions are underlined in red</span>,
         <span class="assumption-strong">strong assumptions are underlined in green</span>,
         and <span class="assumption-med">assumptions in-between are underlined in blue</span>.</p>
     <h2 class="content-header">Design Concept</h2>
-    <p class="content-text">To begin our analysis, we will need to set some rules and assumptions. We’re not looking to
-        completely upend the
-        aviation industry, so we will simply study a re-configured existing airframe (sorry, fans of blended wing
-        bodies). We will also only look at the very surface level of design, a first-order approach. This article is not
-        intended to be a comprehensive study, only a look at a potential new industry.<br/>
+    <p class="content-text">
         <span class="assumption-med">Neither Boeing nor Airbus will probably introduce an electric aircraft into the
             737/A320 market space first as the large quantity demanded will introduce too much risk for a groundbreaking
             design</span>.
@@ -475,17 +489,17 @@
             may allow direct competition with small aircraft</span>.
     </p>
     <h2 class="content-header">Weights</h2>
-    <p class="content-text">All commercial aircraft specify a Maximum Take-off Weight (MTOW) and a Maximum Landing
-        Weight (MLW), with MTOW >
-        MLW. The MLW of the 767–300 is listed as 145.5t (metric tons) with an Operating Empty Weight (OEW) of 88t <a
-                href="#citation7" class="citation-link">[7]</a>.
+    <p class="content-text">All commercial aircraft specify a Maximum Take-off Weight (\(\text{MTOW}\)) and a Maximum
+        Landing Weight \((\text{MLW}\)), with \(\text{MTOW} > \text{MLW}\). The \(\text{MLW}\) of the 767–300 is listed
+        as 145.5t (metric tons) with an Operating Empty Weight (\(\text{OEW}\)) of 88t <a href="#citation7"
+                                                                                          class="citation-link">[7]</a>.
         According to the FAA, the average weight of passengers is 190 lb in the summer and 195 lb in the winter, or just
         under 90 kg <a href="#citation8" class="citation-link">[8]</a>, with EASA reporting a standard deviation of 17.7
         kg. EASA also reports an average mass of
         checked baggage at roughly 16 kg with a standard deviation of 5.7 kg <a href="#citation9" class="citation-link">[9]</a>.
         <span class="assumption-med">We will assume half of all passengers
         will check 1 bag as these flights will be mostly 4 hours long or less</span>. The total weight addition due to
-        $N$-many passengers is then $$(N\times 100\% \times 90 \text{kg}) + (N \times 50\% \times 16 \text{kg}) = N × 96
+        \(N\) many passengers is then $$(N\times 100\% \times 90 \text{kg}) + (N \times 50\% \times 16 \text{kg}) = N × 96
         \text{kg}$$ with standard deviation $$\sqrt{N\times 100\% \times (17.7\text{kg})^2 + N \times 50\% \times
         (5.7\text{kg})^2}=\sqrt{N}\times 18.2\text{kg}$$
         We want to size for the worst-case scenario, so pick the 6-sigma loading scenario:
@@ -605,36 +619,36 @@
         This method is simple for basic estimation but the first law of thermodynamics alone doesn't really give us an
         insight as to what's happening in the stream. We can look at the upstream conditions and see how we need them
         to change in the engine to give us the thrust we need. <span class="assumption-strong">Neglecting pressure
-            thrust</span>, we can write $$T=\dot{m}*(u_e - u_i)$$ where $u_e$ is the exit velocity, $u_i$ is the inlet
-        velocity, and $\dot{m}$ is the mass flow through the engine.
+            thrust</span>, we can write $$T=\dot{m}*(u_e - u_i)$$ where \(u_e\) is the exit velocity, \(u_i\) is the inlet
+        velocity, and \(\dot{m}\) is the mass flow through the engine.
     </p>
     <img src="/static/engine-hand-drawing.jpg" alt="image" class="content-image">
     <p class="content-text">We don't know the inlet conditions for our airplane, but we can estimate what the engine
         needs to be rated for in terms of upstream conditions (station 1). The original 767-300ER had an option for
         GE CF6-80 with a rated thrust of roughly 220 kN <a href="#citation12" class="citation-link">[12]</a>.
         <span class="assumption-med">If we assume the maximum thrust is available up to 200 m/s</span>, the power
-        transferred to the air would be $$220\text{kN}*200\text{m/s}=44\text{MW}$$which seems to agree with the power
+        transferred to the air would be $$220\text{kN}*200\text{m/s}=44\text{MW}$$ which seems to agree with the power
         estimate of 45 MW in the next section. Assuming each engine needs to produce 45 MW and a thrust of 220 kN, we
         find that the maximum airspeed at maximum thrust is 205 m/s. <span class="assumption-med">Assuming semi-standard
-            conditions</span>, we find that upstream temperature $T_{\infty}=298\text{K}$, upstream pressure
-        $P_{\infty}=101.3\text{kPa}$, the ratio of specific heats $\gamma=1.4$, and the specific gas constant
-        $R=287\text{J/kg-k}$. <span class="assumption-med">Taking the isentropic relations</span> and calculating the
-        speed of sound upstream $a=\sqrt{\gamma*R*T}$, we find the upstream mach number $M_1=.591$, stagnation
-        temperature $T_{t,1}=318.8\text{K}$, and upstream stagnation pressure $P_{t,1}=128.3\text{kPa}$.
-        <span class="assumption-med">Assuming ideal gas</span>, density $\rho_1=1.184\text{kg/m^3}$, and stagnation
-        density $\rho_{t,1}=1.402\text{kg/m^3}$.<br/>
-        <span class="assumption-med">Assuming we don't want supersonic exit velocity</span>, we can say $M_2=0.9$ to
+            conditions</span>, we find that upstream temperature \(T_{\infty}=298\text{K}\), upstream pressure
+        \(P_{\infty}=101.3\text{kPa}\), the ratio of specific heats \(\gamma=1.4\), and the specific gas constant
+        \(R=287\text{J/kg-k}\). <span class="assumption-med">Taking the isentropic relations</span> and calculating the
+        speed of sound upstream \(a=\sqrt{\gamma*R*T}\), we find the upstream mach number \(M_1=.591\), stagnation
+        temperature \(T_{t,1}=318.8\text{K}\), and upstream stagnation pressure \(P_{t,1}=128.3\text{kPa}\).
+        <span class="assumption-med">Assuming ideal gas</span>, density \(\rho_1=1.184\text{kg/m^3}\), and stagnation
+        density \(\rho_{t,1}=1.402\text{kg/m^3}\).<br/>
+        <span class="assumption-med">Assuming we don't want supersonic exit velocity</span>, we can say \(M_2=0.9\) to
         reduce engine noise and increase efficiency. Unfortunately, we are not adding much heat to the flow so the
         speed of sound doesn't change much from inlet to exit. This means that the exit velocity isn't much greater
         than the freestream velocity so instead a large mass flow is required. <span class="assumption-med">Assuming
         an engine efficiency of roughly 95% (5% of electrical work is converted to heat and added to the flow)</span>,
         we find that the temperature increase of the flow is only about 1K when using the resultant mass flow number.
-        Applying isentropic relations again, we find that $\rho_2=.963\text{kg/m^3}$, $u_e=u_2=299.3\text{m/s}$,
-        and $\dot{m}=2321.9\text{kg/s}$. This means that the inlet area $A_i=9.58\text{m^2}$ and the exit area
-        $A_e=A_2=8.05\text{m^2}$. This is an exceptionally large engine, much larger than the original CF-6 due to the
+        Applying isentropic relations again, we find that $$\rho_2=.963\text{kg/m^3}$$$$u_e=u_2=299.3\text{m/s}$$$$
+        \dot{m}=2321.9\text{kg/s}$$This means that the inlet area \(A_i=9.58\text{m^2}\) and the exit area
+        \(A_e=A_2=8.05\text{m^2}\). This is an exceptionally large engine, much larger than the original CF-6 due to the
         lack of heat addition. It is highly unlikely an engine this large would be able to fit on a 767-style airframe.
         <br/>An alternative could be installing 4 engines rated at 22.5 MW and 110 kN. Following this same process, we
-        find all the metrics are the same except $A_i=4.79\text{m^2}$ and $A_e=4.03\text{m^2}$, much more reasonable
+        find all the metrics are the same except \(A_i=4.79\text{m^2}\) and \(A_e=4.03\text{m^2}$\) much more reasonable
         numbers. More engines may have benefits: lower risk to airplane due to engine failure and no ETOPS requirements.
     </p>
 
@@ -649,7 +663,7 @@
         recovered</span> (and is
         therefore 0), we obtain the following:</p>
     <img src="/static/WorkBreakdown.png" alt="image" class="content-image" style="max-width: 100%">
-    <p class="content-text">Plotting the maximum work rates and total electrical work done:</p>
+    <p class="content-text">Plotting the maximum work rates and total electrical work done for all flights listed above:</p>
     <img src="/static/WorkRateResult.png" alt="image" class="content-image" style="max-width: 100%">
     <img src="/static/EnergyStorageResult.png" alt="image" class="content-image" style="max-width: 100%">
     <p class="content-text">Applying a Factor of Safety of 1.25 for both energy storage and engine rating, we calculate
@@ -667,8 +681,34 @@
     <p class="content-text">The actual requirement for energy density may be higher than the baseline above as the
         batteries may fatigue over time.</p>
     <h2 class="content-header">Economic Analysis</h2>
-    <h1>Content coming!</h1>
+    <p class="content-text">It’s clear that our airplane should have a lower recurring cost to airlines compared to
+        existing airplanes due to the change in cost of fuel. If we target $10,000 in recurring cost reduction per
+        flight cycle and 80% of that value going to the initial purchase price of the airframe, we can estimate with 3
+        flight cycles / day, 250 operating days in a year, and 15 years of value, our airplane should deliver
+        $$\$10000*80\%*3*250*15=\$90M$$
+        The 767-300 originally sold for roughly $150M in 2020 dollars <a href="#citation13"
+                                                                          class="citation-link">[13]</a>.
+        If we assume 30% of that was net profit to Boeing, the cost of the airframe including engines should be $105M.
+        If our production system would be able to produce net formed, cured, and installed carbon fiber for only $150
+        more per lb than aluminum, then the new cost to manufacture the electric 767 would be:
+        $$\$105M+$150*2*40000=\$117M$$ less the cost of engines. If we assume the engines cost $10M in 2020 dollars,
+        that results in the cost of assembly target of $97M. By delivering increased value to the airlines, Boeing can
+        charge $240M or $168M after the same margin (now up to $72M/airframe). This leaves $71M remaining for
+        batteries and engines. Automotive batteries cost roughly $100/kWh <a href="#citation14"
+                                                                              class="citation-link">[14]</a>. If we
+        assume the cost to integrate aerospace-quality battery packs is 5x current automotive prices with no cost
+        decrease over time due to maturation and no cost increase over time due to increased energy density and charging
+        requirements, that prices the total pack at $50M assuming a lifetime of 15 years. After these are accounted
+        for, there is $21M remaining for the engines. <br/><br/>
+        Assuming 1000 pieces are sold, Boeing would need to limit development spending to $71B to break even; the
+        engine manufacturer would need to provide 2000x 45MW or 4000x 22.5MW pieces at $21B revenue; and the battery
+        manufacturer would need to provide 1000x 100MWh packs for $50B. Assuming 30% margin for the engine and battery
+        manufacturers, that leaves at most $6.3B for the engine manufacturer and $15B for the battery manufacturer in
+        development spending.
+    </p>
+    <h1 style="margin-top: 100px; margin-bottom: 100px;font-style: italic;">More coming!</h1>
 
+    <h1 class="content-header">Interactive Value Waterfall Plots</h1>
     <div class="plots-container">
         <div id="costWaterfall_737"></div>
         <div id="costWaterfall_A320"></div>
@@ -704,6 +744,7 @@
     </div>
 
 
+    <h1 class="content-header" style="margin-top: 100px;">Citations</h1>
     <div id="citations">
         <div id="citation1">
             <p class="citation-name"><span class="ref-id">[1]</span> Harbour Air and magniX Partner to Build World’s
@@ -788,6 +829,21 @@
                href="https://en.wikipedia.org/wiki/General_Electric_CF6">
                 https://en.wikipedia.org/wiki/General_Electric_CF6</a>
             <p class="citation-date">January 3, 2020</p>
+        </div>
+        <div id="citation13">
+            <p class="citation-name"><span class="ref-id">[13]</span> Boeing 737-300ER Lease Rate & Availability</p>
+            <a class="citation-address"
+               href="https://www.airliners.net/forum/viewtopic.php?t=349705">
+                https://www.airliners.net/forum/viewtopic.php?t=349705</a>
+            <p class="citation-date">September 2, 2005</p>
+        </div>
+        <div id="citation14">
+            <p class="citation-name"><span class="ref-id">[14]</span> Electric-car battery prices dropped 13% in 2019,
+                will reach $100/kwh in 2023</p>
+            <a class="citation-address"
+               href="https://www.greencarreports.com/news/1126308_electric-car-battery-prices-dropped-13-in-2019-will-reach-100-kwh-in-2023">
+                https://www.greencarreports.com/news/1126308_electric-car-battery-prices-dropped-13-in-2019-will-reach-100-kwh-in-2023</a>
+            <p class="citation-date">December 6, 2019</p>
         </div>
     </div>
 
