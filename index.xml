@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Noah&#39;s Projects</title>
+    <link>https://noahess.github.io/</link>
+    <description>Recent content on Noah&#39;s Projects</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://noahess.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Electric 767</title>
+      <link>https://noahess.github.io/2020/02/an-electric-767/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://noahess.github.io/2020/02/an-electric-767/</guid>
+      <description>&lt;p&gt;What would an electrified 767 look like? A simple first-order analysis of a potential new market.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>About this website</title>
+      <link>https://noahess.github.io/1970/01/about-this-website/</link>
+      <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+      
+      <guid>https://noahess.github.io/1970/01/about-this-website/</guid>
+      <description>&lt;p&gt;Credits and thanks&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
