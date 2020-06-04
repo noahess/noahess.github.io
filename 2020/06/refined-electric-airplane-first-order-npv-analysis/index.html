@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.72.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Noah Stockwell">
+<meta name="keywords" content="Boeing, 767, electric, NPV">
+<meta name="description" content="A continuation of some previous work done analyzing an electrified 767-300.">
+
+
+<meta property="og:description" content="A continuation of some previous work done analyzing an electrified 767-300.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Refined Electric Airplane &amp; First-Order NPV Analysis">
+<meta name="twitter:title" content="Refined Electric Airplane &amp; First-Order NPV Analysis">
+<meta property="og:url" content="https://noahess.github.io/2020/06/refined-electric-airplane-first-order-npv-analysis/">
+<meta property="twitter:url" content="https://noahess.github.io/2020/06/refined-electric-airplane-first-order-npv-analysis/">
+<meta property="og:site_name" content="Noah&#39;s Projects">
+<meta property="og:description" content="A continuation of some previous work done analyzing an electrified 767-300.">
+<meta name="twitter:description" content="A continuation of some previous work done analyzing an electrified 767-300.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-06-04T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2020-06-04T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="Aerospace">
+    
+      <meta property="article:section" content="Analysis">
+    
+  
+  
+    
+      <meta property="article:tag" content="Electrification">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://noahess.github.io/images/electricNPV/thumbnail.jpg">
+  <meta property="twitter:image" content="https://noahess.github.io/images/electricNPV/thumbnail.jpg">
+
+
+  <meta property="og:image" content="https://noahess.github.io/images/electricNPV/banner.jpg">
+  <meta property="twitter:image" content="https://noahess.github.io/images/electricNPV/banner.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/77d780e55bd234cb09764f0728c8c9a1?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/77d780e55bd234cb09764f0728c8c9a1?s=640">
+
+
+    <title>Refined Electric Airplane &amp; First-Order NPV Analysis</title>
+
+    <link rel="icon" href="https://noahess.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://noahess.github.io/2020/06/refined-electric-airplane-first-order-npv-analysis/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://noahess.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$','$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+            x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://noahess.github.io/">Noah&#39;s Projects</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://noahess.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/77d780e55bd234cb09764f0728c8c9a1?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://noahess.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/77d780e55bd234cb09764f0728c8c9a1?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Noah Stockwell</h4>
+        
+          <h5 class="sidebar-profile-bio">Purdue <strong>|</strong> Aerospace Engineer in-training</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://noahess.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://noahess.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://noahess.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://noahess.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/noahess" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://noahess.github.io/">
+    
+      
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/images/electricNPV/banner.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Refined Electric Airplane &amp; First-Order NPV Analysis
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-06-04T00:00:00Z">
+        
+  June 4, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://noahess.github.io/categories/aerospace">Aerospace</a>, 
+    
+      <a class="category-link" href="https://noahess.github.io/categories/analysis">Analysis</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>A continuation of some previous work done analyzing an electrified 767-300.</p>
+<h1 id="note">Note</h1>
+<p>This analysis is still a work-in-progress</p>
+<h1 id="results">Results</h1>
+<p>The value of an electrified airplane is highly dependent on both the price of electricity and a barrel of oil.
+A correctly optimized airframe could provide incredible value for almost all stakeholders.</p>
+<h1 id="cost-comparison">Cost Comparison</h1>
+<p>The US Government has put together an incredible amount of data that has been highly valuable for this analysis.
+Historic prices of a barrel of oil are from <a href="https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&amp;s=RWTC&amp;f=M">the EIA</a>,
+historical data for airline fuel costs are from <a href="https://www.transtats.bts.gov/fuel.asp?pn=1">the BTS</a>;
+as well as detailed maintenance costs, amortization, fuel hours, etc from <a href="https://www.transtats.bts.gov/Fields.asp">Form 41, Schedule P-5.2</a>.</p>
+<p>Comparing the historical price of a barrel of oil at WTI to the historical expense of one gallon of aviation fuel for Delta airlines, we get an average factor of 0.031507 for cost of a gallon of aviation fuel per cost of a barrel of oil, and a standard deviation of 0.0065049 from 1990-2019.</p>
+<p>Looking at Form 41, Schedule P-5.2 for type 626 (767-300/ER), the average fuel consumption per hour is 1588.1 gallons with a standard deviation of 173.26 gallons.
+The expected fuel consumption in gallons for three flight lengths is:</p>
+<table>
+<thead>
+<tr>
+<th>2 hours</th>
+<th>4 hours</th>
+<th>6 hours</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3176.2</td>
+<td>6352.5</td>
+<td>9528.7</td>
+</tr>
+</tbody>
+</table>
+<p>Using the nondimensional factor of cost per gallon = 0.031507 * price of barrel:</p>
+<table>
+<thead>
+<tr>
+<th>WTI Spot Price</th>
+<th>2 Hr Fuel Cost</th>
+<th>4 Hr Fuel Cost</th>
+<th>6 Hr Fuel Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$35</td>
+<td>$3,503</td>
+<td>$7,005</td>
+<td>$10,508</td>
+</tr>
+<tr>
+<td>$40</td>
+<td>$4,003</td>
+<td>$8,006</td>
+<td>$12,009</td>
+</tr>
+<tr>
+<td>$45</td>
+<td>$4,503</td>
+<td>$9,007</td>
+<td>$13,510</td>
+</tr>
+<tr>
+<td>$50</td>
+<td>$5,004</td>
+<td>$10,008</td>
+<td>$15,011</td>
+</tr>
+<tr>
+<td>$55</td>
+<td>$5,504</td>
+<td>$11,008</td>
+<td>$16,512</td>
+</tr>
+<tr>
+<td>$60</td>
+<td>$6,005</td>
+<td>$12,009</td>
+<td>$18,014</td>
+</tr>
+<tr>
+<td>$65</td>
+<td>$6,505</td>
+<td>$13,010</td>
+<td>$19,515</td>
+</tr>
+<tr>
+<td>$70</td>
+<td>$7,005</td>
+<td>$14,011</td>
+<td>$21,016</td>
+</tr>
+<tr>
+<td>$75</td>
+<td>$7,506</td>
+<td>$15,011</td>
+<td>$22,517</td>
+</tr>
+<tr>
+<td>$80</td>
+<td>$8,006</td>
+<td>$16,012</td>
+<td>$24,018</td>
+</tr>
+<tr>
+<td>$85</td>
+<td>$8,506</td>
+<td>$17,013</td>
+<td>$25,519</td>
+</tr>
+<tr>
+<td>$90</td>
+<td>$9,007</td>
+<td>$18,014</td>
+<td>$27,020</td>
+</tr>
+<tr>
+<td>$95</td>
+<td>$9,507</td>
+<td>$19,014</td>
+<td>$28,521</td>
+</tr>
+<tr>
+<td>$100</td>
+<td>$10,008</td>
+<td>$20,015</td>
+<td>$30,023</td>
+</tr>
+</tbody>
+</table>
+<p>Comparing to an electric airplane expectations:</p>
+<table>
+<thead>
+<tr>
+<th>Electricity cost (/kWh)</th>
+<th>2 Hr (30 MWh) Electricity Cost</th>
+<th>4 Hr (60 MWh) Electricity Cost</th>
+<th>6 Hr (80 MWh) Electricity Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0.06</td>
+<td>$1,800</td>
+<td>$3,600</td>
+<td>$4,800</td>
+</tr>
+<tr>
+<td>$0.07</td>
+<td>$2,100</td>
+<td>$4,200</td>
+<td>$5,600</td>
+</tr>
+<tr>
+<td>$0.08</td>
+<td>$2,400</td>
+<td>$4,800</td>
+<td>$6,400</td>
+</tr>
+<tr>
+<td>$0.09</td>
+<td>$2,700</td>
+<td>$5,400</td>
+<td>$7,200</td>
+</tr>
+<tr>
+<td>$0.10</td>
+<td>$3,000</td>
+<td>$6,000</td>
+<td>$8,000</td>
+</tr>
+<tr>
+<td>$0.11</td>
+<td>$3,300</td>
+<td>$6,600</td>
+<td>$8,800</td>
+</tr>
+<tr>
+<td>$0.12</td>
+<td>$3,600</td>
+<td>$7,200</td>
+<td>$9,600</td>
+</tr>
+<tr>
+<td>$0.13</td>
+<td>$3,900</td>
+<td>$7,800</td>
+<td>$10,400</td>
+</tr>
+<tr>
+<td>$0.14</td>
+<td>$4,200</td>
+<td>$8,400</td>
+<td>$11,200</td>
+</tr>
+<tr>
+<td>$0.15</td>
+<td>$4,500</td>
+<td>$9,000</td>
+<td>$12,000</td>
+</tr>
+<tr>
+<td>$0.16</td>
+<td>$4,800</td>
+<td>$9,600</td>
+<td>$12,800</td>
+</tr>
+<tr>
+<td>$0.17</td>
+<td>$5,100</td>
+<td>$10,200</td>
+<td>$13,600</td>
+</tr>
+<tr>
+<td>$0.18</td>
+<td>$5,400</td>
+<td>$10,800</td>
+<td>$14,400</td>
+</tr>
+</tbody>
+</table>
+<p>It&rsquo;s unlikely the average cost of a barrel of oil will be $40 or $100 over the next 20 years, and it&rsquo;s also unlikely electricity will only cost $0.06/kWh for airlines.</p>
+<p>Assuming average future electricity costs to airlines are $0.10/kWh and a low/medium/high average gas prices of $55/$60/$65 / barrel at WTI; the savings per flight are:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>2 Hr Savings</th>
+<th>4 Hr Savings</th>
+<th>6 Hr Savings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low</td>
+<td>$2,004</td>
+<td>$4,008</td>
+<td>$7,011</td>
+</tr>
+<tr>
+<td>Med</td>
+<td>$2,504</td>
+<td>$5,008</td>
+<td>$8,512</td>
+</tr>
+<tr>
+<td>High</td>
+<td>$3,005</td>
+<td>$6,009</td>
+<td>$10,014</td>
+</tr>
+</tbody>
+</table>
+<p>Assuming there are 20 hours available to fly in a day, mandatory 1-hour turnaround times, and 320 days flying per year:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>2 Hr Missions</th>
+<th>4 Hr Missions</th>
+<th>6 Hr Missions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flights/day</td>
+<td>6.67</td>
+<td>4.00</td>
+<td>2.86</td>
+</tr>
+<tr>
+<td>Days/yr</td>
+<td>320</td>
+<td>320</td>
+<td>320</td>
+</tr>
+<tr>
+<td>Savings/yr Low</td>
+<td>$5,342,155</td>
+<td>$6,410,586</td>
+<td>$7,782,770</td>
+</tr>
+<tr>
+<td>Savings/yr Medium</td>
+<td>$6,409,623</td>
+<td>$7,691,548</td>
+<td>$9,155,230</td>
+</tr>
+<tr>
+<td>Savings/yr High</td>
+<td>$7,477,092</td>
+<td>$8,972,510</td>
+<td>$10,527,690</td>
+</tr>
+</tbody>
+</table>
+<h1 id="stay-tuned">Stay tuned!</h1>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://noahess.github.io/tags/electrification/">Electrification</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+</div>
+
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Noah Stockwell. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fnoahess.github.io%2F2020%2F06%2Frefined-electric-airplane-first-order-npv-analysis%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/77d780e55bd234cb09764f0728c8c9a1?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Noah Stockwell</h4>
+    
+      <div id="about-card-bio">Purdue <strong>|</strong> Aerospace Engineer in-training</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Student
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        United States
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://noahess.github.io/images/sidebar.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://noahess.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+
+
+
+
+    
+  </body>
+</html>
+

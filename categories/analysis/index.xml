@@ -6,10 +6,19 @@
     <description>Recent content in Analysis on Noah&#39;s Projects</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://noahess.github.io/categories/analysis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Refined Electric Airplane &amp; First-Order NPV Analysis</title>
+      <link>https://noahess.github.io/2020/06/refined-electric-airplane-first-order-npv-analysis/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://noahess.github.io/2020/06/refined-electric-airplane-first-order-npv-analysis/</guid>
+      <description>&lt;p&gt;A continuation of some previous work done analyzing an electrified 767-300.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>An Electric 767</title>

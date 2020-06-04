@@ -13,7 +13,7 @@
 # use grunt task `build` to synchronize assets
 
 baseURL = "https://noahess.github.io/"
-publishDir("..")
+publishDir = ".."
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Noah's Projects"
